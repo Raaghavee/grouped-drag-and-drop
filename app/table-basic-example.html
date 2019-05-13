@@ -1,0 +1,7 @@
+<mat-accordion displayMode="flat" class="mat-enroll-accordian">
+	<mat-expansion-panel *ngFor="let group of dataSourceGroup; let i=index">
+		<mat-expansion-panel-header>{{group.group}}</mat-expansion-panel-header>
+		<app-drag-drop [groupVal]="group.items"></app-drag-drop>
+
+	</mat-expansion-panel>
+</mat-accordion>

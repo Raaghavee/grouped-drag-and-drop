@@ -1,0 +1,43 @@
+<table #grTable="matTable" mat-table [dataSource]="elDataSource" matSort #matSortData="matSort" class="mat-elevation-z8" cdkDropList
+		 (cdkDropListDropped)="onDragDrop($event,i,elements,grTable)">
+
+
+			<ng-container matColumnDef="index">
+
+
+				<th mat-header-cell *matHeaderCellDef class="col-lg-2" mat-sort-header> Sq No. </th>
+				<td mat-cell *matCellDef="let element; let rowId=index" class="col-lg-2"> {{rowId+1}} </td>
+			</ng-container>
+
+			<ng-container matColumnDef="position">
+
+
+				<th mat-header-cell *matHeaderCellDef class="col-lg-2" mat-sort-header> Position. </th>
+				<td mat-cell *matCellDef="let element" class="col-lg-2"> {{element.position}} </td>
+			</ng-container>
+
+
+			<ng-container matColumnDef="name">
+				<th mat-header-cell *matHeaderCellDef class="col-lg-2" mat-sort-header> Name </th>
+				<td mat-cell *matCellDef="let element" class="col-lg-2"> {{element.name}} </td>
+			</ng-container>
+
+
+			<ng-container matColumnDef="weight">
+				<th mat-header-cell *matHeaderCellDef class="col-lg-2" mat-sort-header> Weight </th>
+				<td mat-cell *matCellDef="let element" class="col-lg-2"> {{element.weight}} </td>
+			</ng-container>
+
+
+			<ng-container matColumnDef="symbol">
+				<th mat-header-cell *matHeaderCellDef class="col-lg-2" mat-sort-header> Symbol </th>
+				<td mat-cell *matCellDef="let element" class="col-lg-2"> {{element.symbol}} </td>
+			</ng-container>
+
+
+			<tr class="row" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+
+			<tr class="row" mat-row *matRowDef="let row; columns: displayedColumns; " cdkDrag [cdkDragData]="row"></tr>
+
+		</table>
